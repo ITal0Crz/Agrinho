@@ -1,0 +1,164 @@
+:root {
+    --primary: #2e7d32;
+    --dark: #1b5e20;
+    --text: #2c2c2c;
+    --bg: #dfead3;
+    --card: rgba(255,255,255,0.95);
+}
+
+/* MODO ESCURO - Azul escuro acessível */
+body.dark {
+    --bg: #0a1f2e;
+    --card: rgba(15, 35, 55, 0.95);
+    --text: #e0f0ff;
+    --primary: #4ade80;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s;
+    min-height: 100vh;
+}
+
+/* Fundo bonito com elementos do campo */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)),
+        url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=80");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.quiz-container {
+    max-width: 650px;
+    margin: 40px auto;
+    background: var(--card);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Telas */
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* Títulos */
+h1, h2 {
+    text-align: center;
+    color: var(--primary);
+}
+
+/* Alternativas - LETRAS PRETAS */
+.option-btn {
+    background: white;
+    color: #222 !important;           /* Preto forte */
+    margin: 10px 0;
+    padding: 14px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 1.05rem;
+    text-align: left;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+body.dark .option-btn {
+    background: #1e2a3a;
+    color: #ffffff !important;
+    border-color: #445566;
+}
+
+.option-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.option-btn.correct {
+    background: #4ade80 !important;
+    color: #0f2e12 !important;
+    border-color: #2e7d32;
+}
+
+.option-btn.wrong {
+    background: #ff6b6b !important;
+    color: white !important;
+}
+
+.option-btn.hint-highlight {
+    background: #ffe66d !important;
+    border-color: #f59e0b;
+}
+
+/* Outros estilos */
+.progress-bar { margin-bottom: 20px; }
+.bar-outer {
+    width: 100%;
+    height: 12px;
+    background: #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#bar-inner {
+    height: 100%;
+    width: 0%;
+    background: var(--primary);
+    transition: width 0.4s;
+}
+
+.hint-btn {
+    background: #f59e0b;
+    margin: 15px 0;
+}
+
+.hint-btn:disabled, .hint-btn[style*="opacity"] {
+    background: #888;
+}
+
+.streak-container {
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 10px 0;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .quiz-container {
+        margin: 15px;
+        padding: 20px;
+    }
+    button, .option-btn {
+        padding: 14px;
+        font-size: 1.1rem;
+    }
+}
+
+.feedback-msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    z-index: 100;
+}
+.feedback-msg.success { background: #4ade80; color: #0f2e12; }
+.feedback-msg.error { background: #ff6b6b; color: white; }
+
+/* Lista de dicas */
+.tips-list {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+.tips-list li {
+    margin: 12px 0;
+}

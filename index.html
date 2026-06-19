@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Agro Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- BOTÕES DE ACESSIBILIDADE -->
+<button id="toggle-theme" class="theme-btn">🌗 Modo Escuro</button>
+
+<div class="quiz-container">
+
+    <!-- TELA INICIAL -->
+    <div id="start-screen" class="screen active">
+        <h1>🌱 Agro Sustentável</h1>
+        <h2 class="start-message">Quiz sobre Agricultura Sustentável</h2>
+
+        <div class="intro-text">
+            <p>A agricultura sustentável busca equilibrar a produção de alimentos, a preservação ambiental e o uso consciente dos recursos naturais.</p>
+            <p>Teste seus conhecimentos sobre práticas que cuidam do solo, da água, da biodiversidade e do futuro do campo.</p>
+        </div>
+
+        <button id="start-btn">Iniciar Quiz</button>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="question-screen" class="screen">
+        <div class="progress-bar">
+            <span id="progress-text"></span>
+            <div class="bar-outer">
+                <div id="bar-inner"></div>
+            </div>
+        </div>
+
+        <div class="streak-container">
+            <span id="streak-text">🔥 Sequência: <strong>0</strong></span>
+        </div>
+
+        <h2 id="question-text"></h2>
+        <div id="options-container" class="options"></div>
+
+        <button id="hint-btn" class="hint-btn">💡 Dica (<span id="hints-remaining">3</span>)</button>
+        <button id="next-btn" class="hidden">Próxima Pergunta</button>
+    </div>
+
+    <!-- RESULTADO -->
+    <div id="result-screen" class="screen">
+        <h2>Quiz Concluído!</h2>
+        <p id="score-text"></p>
+        <p id="feedback-message"></p>
+        <button id="restart-btn">Refazer Quiz</button>
+        <button id="learn-more-btn">Quero aprender mais sobre Agro Sustentável</button>
+    </div>
+
+    <!-- TELA APRENDER MAIS -->
+    <div id="learn-screen" class="screen">
+        <h2>Dicas para uma Agricultura mais Sustentável</h2>
+        <ul class="tips-list">
+            <li><strong>Plantio Direto:</strong> Reduz erosão e preserva o solo.</li>
+            <li><strong>Rotação de Culturas:</strong> Melhora a fertilidade natural do solo.</li>
+            <li><strong>Uso de Bioinsumos:</strong> Substitui químicos por soluções naturais.</li>
+            <li><strong>ILPF (Integração Lavoura-Pecuária-Floresta):</strong> Aumenta a produtividade e a biodiversidade.</li>
+            <li><strong>Irrigação por Gotejamento:</strong> Economiza até 70% de água.</li>
+            <li><strong>Compostagem:</strong> Transforma resíduos em adubo rico.</li>
+        </ul>
+        <button id="back-to-result-btn">Voltar ao Resultado</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
